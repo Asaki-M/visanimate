@@ -8,7 +8,7 @@ function TableItem() {
       <div>name</div>
       <div>
         <Button type="link" icon={<EditOutlined />}></Button>
-        <Button type="link" icon={<DeleteOutlined />}></Button>
+        <Button type="link" danger icon={<DeleteOutlined />}></Button>
       </div>
     </div>
   )
