@@ -1,22 +1,17 @@
-.editor-contain {
+.contain {
   width: 100%;
   height: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  padding: 0 5px;
 
-  .can-editor,
-  .cannot-editor {
-    box-sizing: border-box;
-    padding: 0 5px;
+  .header {
+
     width: 100%;
-    height: 10%;
     @include flexLayout($justify-content: space-between);
-
 
     .title {
       font-weight: bold;
     }
-  }
-
-  .textarea {
-    height: 90%;
   }
 }

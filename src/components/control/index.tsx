@@ -1,11 +1,14 @@
 import styles from './index.module.scss'
 import Editor from '../common/editor'
+import AnimateForm from '../common/animateForm'
 import { Divider } from 'antd'
 
 function Control() {
   return (
     <aside className={styles['control-layout']}>
-      <section className={styles['form-layout']}>control layout</section>
+      <section className={styles['form-layout']}>
+        <AnimateForm></AnimateForm>
+      </section>
       <section className={styles['code-layout']}>
         <div className={styles.code}>
           <Editor canEditor></Editor>
