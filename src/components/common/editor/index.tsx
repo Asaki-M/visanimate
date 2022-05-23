@@ -11,12 +11,12 @@ function Editor(props: propsInterface) {
     <div className={styles['editor-contain']}>
       {canEditor ? (
         <div className={styles['can-editor']}>
-          <div className={styles.title}>preview box style</div>
+          <div className={styles.title}>Preview box style</div>
           <Button type="link" icon={<CheckOutlined />}></Button>
         </div>
       ) : (
         <div className={styles['cannot-editor']}>
-          <div className={styles.title}>animate code</div>
+          <div className={styles.title}>Animation code</div>
           <Button type="link" icon={<CopyOutlined />}></Button>
         </div>
       )}
