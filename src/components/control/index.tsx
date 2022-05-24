@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
-import Editor from '../common/editor'
-import AnimateForm from '../common/animateForm'
+import Editor from '../editor'
+import AnimateForm from '../animateForm'
 import { Divider } from 'antd'
 
 function Control() {
