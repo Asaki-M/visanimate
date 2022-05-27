@@ -13,6 +13,14 @@
     .title {
       font-weight: bold;
     }
+
+    .controls {
+      @include flexLayout;
+
+      .play {
+        margin-left: 5px;
+      }
+    }
   }
 
   .main {
