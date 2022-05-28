@@ -14,14 +14,19 @@ function AnimateForm() {
       return [...list, data]
     })
   }
+
+  // play and stop
+  const [playing, setPlaying] = useState(false)
   const playAnimation = () => {
     if (animateList.length === 0) {
       message.warning('No animation, should add some animation !')
       return
     }
+    setPlaying(true)
     dispatch({ type: 'ADD_PREVIEW_ANIMATION', payload: animateList })
   }
   const stopAnimation = () => {
+    setPlaying(false)
     dispatch('STOP_PREVIEW_ANIMATION')
   }
   return (
@@ -34,12 +39,14 @@ function AnimateForm() {
             type="primary"
             className={styles.play}
             icon={<PlayCircleOutlined />}
+            disabled={playing}
             onClick={playAnimation}
           ></Button>
           <Button
             type="primary"
             className={styles.play}
             icon={<PauseCircleOutlined />}
+            disabled={!playing}
             onClick={stopAnimation}
           ></Button>
         </div>
