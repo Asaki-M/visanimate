@@ -17,4 +17,5 @@ export interface TableGroupProps {
 
 export interface TableItemProps {
   item: AnimateFormData
+  idx: number
 }

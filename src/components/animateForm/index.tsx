@@ -5,7 +5,7 @@ import { AnimateFormData } from './interface'
 import { useState } from 'react'
 import { Button, message } from 'antd'
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons'
-import { dispatch } from 'use-bus'
+import useBus, { dispatch } from 'use-bus'
 
 function AnimateForm() {
   const [animateList, setAnimateList] = useState<AnimateFormData[]>([])
@@ -29,6 +29,19 @@ function AnimateForm() {
     setPlaying(false)
     dispatch('STOP_PREVIEW_ANIMATION')
   }
+
+  // delete animation list
+  useBus(
+    'DELETE_ANIMATION',
+    ({ type, payload }) => {
+      setAnimateList((list) => {
+        const temp = list
+        temp.splice(payload, 1)
+        return [...temp]
+      })
+    },
+    []
+  )
   return (
     <div className={styles['contain']}>
       <header className={styles.header}>

@@ -7,8 +7,8 @@ function TableGroup(props: TableGroupProps) {
   const { animateList } = props
   return (
     <div className={styles.group}>
-      {animateList.map((item) => {
-        return <TableItem item={item} key={getOnlyId()}></TableItem>
+      {animateList.map((item, idx) => {
+        return <TableItem idx={idx} item={item} key={getOnlyId()}></TableItem>
       })}
     </div>
   )
