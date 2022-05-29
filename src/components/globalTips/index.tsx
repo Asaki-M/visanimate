@@ -4,7 +4,9 @@ import { useState } from 'react'
 import { dispatch } from 'use-bus'
 
 const GlobalTips = () => {
-  const showTips = !!window.localStorage.getItem('showTips')
+  const [closecln] = useState(() => {
+    return !!window.localStorage.getItem('showTips') ? 'close' : 'open'
+  })
   const tips = [
     'Firstly, should add some animation by the "Add an Animation" button.',
     'Secondly, click the "play" button to preview the animation and the "stop" button to stop the animation.',
@@ -24,7 +26,7 @@ const GlobalTips = () => {
   }
 
   return (
-    <main className={`${styles.mask} ${styles[showTips ? 'close' : '']}`}>
+    <main className={`${styles.mask} ${styles[closecln]}`}>
       <section className={styles['tips' + cidx]}>
         <p>{tips[cidx]}</p>
         <Button type="link" onClick={nextTip}>
