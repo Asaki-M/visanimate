@@ -16,7 +16,22 @@
     }
   }
 
-  .textarea {
-    height: 90%;
+  .editor {
+
+    /* 设置滚动条的样式 */
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* 滚动槽 */
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+
+    /* 滚动条滑块 */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.12);
+    }
   }
 }
