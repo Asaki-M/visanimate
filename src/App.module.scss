@@ -3,4 +3,5 @@
   height: 100vh;
   background-color: #eee;
   @include flexLayout($justify-content: space-between);
+  overflow: hidden;
 }

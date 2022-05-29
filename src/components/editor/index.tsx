@@ -60,7 +60,7 @@ function Editor(props: propsInterface) {
         placeholder={canEditor ? 'Can editor preview box style here' : ''}
         disabled={!canEditor}
         allowClear={!!canEditor}
-        rows={12}
+        rows={10}
         value={code}
         className={styles.editor}
         onChange={(e) => setCode(e.target.value)}
