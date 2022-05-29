@@ -29,7 +29,7 @@ function AddAnimate(props: SendFormData) {
   return (
     <div>
       <Button type="primary" onClick={showModal}>
-        Add a Animate
+        Add an Animate
       </Button>
       <Modal
         title="Config a Animate"
