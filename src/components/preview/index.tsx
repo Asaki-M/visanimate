@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import useBus from 'use-bus'
+import useBus, { dispatch } from 'use-bus'
 import { AnimateFormData } from '../animateForm/interface'
 
 interface StyleObj {
@@ -91,6 +91,13 @@ function Preview() {
       animations = animations.slice(0, animations.length - 2)
       styleTar.innerHTML = keyFrames
       box.style.animation = animations
+      dispatch({
+        type: 'GENERATE_CODE',
+        payload: {
+          animation: animations,
+          keyFrame: keyFrames
+        }
+      })
     },
     []
   )

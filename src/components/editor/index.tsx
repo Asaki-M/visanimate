@@ -1,9 +1,10 @@
-import { Input, Button } from 'antd'
+import { Input, Button, message } from 'antd'
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
 import { propsInterface } from './interface'
 import { useCallback, useState } from 'react'
-import { dispatch } from 'use-bus'
+import useBus, { dispatch } from 'use-bus'
+import { copyText } from '@/utils'
 
 const { TextArea } = Input
 
@@ -14,6 +15,25 @@ function Editor(props: propsInterface) {
     // need to formatter code
     dispatch({ type: 'ADD_PREVIEW_STYLE', payload: code })
   }, [code])
+
+  useBus(
+    'GENERATE_CODE',
+    ({ payload }) => {
+      if (!canEditor) {
+        const { animation, keyFrame } = payload
+        const animateCode = `.box { animation: ${animation}; }
+          ${keyFrame}
+          `
+        setCode(animateCode)
+      }
+    },
+    []
+  )
+
+  const copyHandle = () => {
+    copyText(code)
+    message.success('Copy success!')
+  }
   return (
     <div className={styles['editor-contain']}>
       {canEditor ? (
@@ -28,7 +48,11 @@ function Editor(props: propsInterface) {
       ) : (
         <div className={styles['cannot-editor']}>
           <div className={styles.title}>Animation code</div>
-          <Button type="link" icon={<CopyOutlined />}></Button>
+          <Button
+            type="link"
+            icon={<CopyOutlined />}
+            onClick={copyHandle}
+          ></Button>
         </div>
       )}
 
@@ -38,6 +62,7 @@ function Editor(props: propsInterface) {
         allowClear={!!canEditor}
         rows={12}
         value={code}
+        className={styles.editor}
         onChange={(e) => setCode(e.target.value)}
       ></TextArea>
     </div>
