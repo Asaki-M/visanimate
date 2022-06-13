@@ -1,7 +1,3 @@
-export function getOnlyId() {
-  return URL.createObjectURL(new Blob()).substring(36)
-}
-
 export function copyText(text: string) {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text)
